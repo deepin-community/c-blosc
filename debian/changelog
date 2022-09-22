@@ -1,0 +1,239 @@
+c-blosc (1.21.1+ds1-1) unstable; urgency=medium
+
+  * New upstream release
+  * Adopt package. Closes: #945176
+  * d/watch: Update URL to GitHub.
+  * d/control:
+    - Drop version constriction on build-dependency
+    - Update Standards-Version to 4.6.0
+  * d/copyright: Update mail address.
+
+ -- Håvard Flaget Aasen <haavard_aasen@yahoo.no>  Wed, 06 Oct 2021 21:22:31 +0200
+
+c-blosc (1.20.1+ds1-2) unstable; urgency=medium
+
+  * d/rules: Change CMake flag to include support for snappy Closes: #976569
+
+ -- Håvard Flaget Aasen <haavard_aasen@yahoo.no>  Sun, 06 Dec 2020 17:43:44 +0100
+
+c-blosc (1.20.1+ds1-1) unstable; urgency=medium
+
+  * QA upload.
+  [ Debian Janitor ]
+  * Use secure URI in Homepage field.
+  * debian/copyright: use spaces rather than tabs to start continuation
+    lines.
+  * Set upstream metadata fields: Bug-Database.
+  * Set upstream metadata fields: Bug-Submit.
+  * Update standards version to 4.5.0, no changes needed.
+
+  [ Håvard Flaget Aasen ]
+  * New upstream version 1.20.1+ds1
+  * d/control:
+    - Bump debhelper to 13
+    - Add rules-Requires-Root: no
+    - Update Standards-Version to 4.5.1
+  * d/watch: Update to version 4
+  * Set upstream metadata fields: Repository, Repository-Browse
+  * d/rules, d/libblosc-dev.docs: Rename documentation files, to match
+    changes upstream.
+  * d/not-installed: New file, explicitly mention files which is not installed.
+  * d/copyright:
+    - Add Upstream-Contact.
+    - Add Blosc Development Team in Copyright field
+
+ -- Håvard Flaget Aasen <haavard_aasen@yahoo.no>  Fri, 27 Nov 2020 16:52:53 +0100
+
+c-blosc (1.17.1+ds1-1) unstable; urgency=medium
+
+  * QA upload
+  * New upstream version 1.17.1+ds1
+  * Change to debhelper-compat in d/control
+  * Bump dh to 12
+  * Bump Standards-Version to 4.4.1
+
+ -- Håvard Flaget Aasen <haavard_aasen@yahoo.no>  Thu, 12 Dec 2019 23:30:57 +0100
+
+c-blosc (1.15.1+ds1-3) unstable; urgency=medium
+
+  * QA upload.
+  * use python3-docutils from b-d; Closes: #942917
+
+ -- Sandro Tosi <morph@debian.org>  Thu, 21 Nov 2019 22:03:42 -0500
+
+c-blosc (1.15.1+ds1-2) unstable; urgency=medium
+
+  * Orphaning package.
+
+ -- Daniel Stender <stender@debian.org>  Wed, 20 Nov 2019 22:37:16 +0100
+
+c-blosc (1.15.1+ds1-1) unstable; urgency=medium
+
+  * New upstream release.
+
+ -- Daniel Stender <stender@debian.org>  Thu, 13 Dec 2018 10:53:53 +0100
+
+c-blosc (1.15.0+ds1-1) unstable; urgency=medium
+
+  * New upstream release.
+  * deb/control:
+    + add !nodoc build profile switch to some b-deps.
+    + remove unwanted tab among b-deps.
+  * deb/rules:
+    + check for nodoc build option in override for dh_installdocs.
+
+ -- Daniel Stender <stender@debian.org>  Fri, 30 Nov 2018 19:29:01 +0100
+
+c-blosc (1.14.4+ds1-1) unstable; urgency=medium
+
+  * New upstream release.
+  * deb/control:
+    + bump standards to 4.2.1 (no further changes needed).
+  * deb/rules:
+    + build with DH_VERBOSE=1 (along standards 4.2.0).
+  * drop empty debian/patches.
+  * build with dh 11 (changed in deb/control and deb/compat).
+
+ -- Daniel Stender <stender@debian.org>  Sun, 11 Nov 2018 12:42:32 +0100
+
+c-blosc (1.14.3+ds1-1) unstable; urgency=medium
+
+  * New upstream release.
+
+ -- Daniel Stender <stender@debian.org>  Fri, 13 Apr 2018 16:39:46 +0200
+
+c-blosc (1.14.2+ds1-1) unstable; urgency=medium
+
+  * New upstream release (Closes: #893000).
+
+ -- Daniel Stender <stender@debian.org>  Sun, 18 Mar 2018 21:40:02 +0100
+
+c-blosc (1.14.0+ds1-1) unstable; urgency=medium
+
+  * New upstream release:
+    + drop fix-nonlinux-ftbfs.patch (applied upstream).
+    + drop bigendian.patch (fixed upstream).
+    + drop preserve-cflags-from-environment.patch (applied upstream).
+  * deb/control:
+    + add pandoc to build-deps (needed to process README.md).
+  * deb/copyright:
+    + expand copyright span.
+  * deb/rules:
+    + drop manual setting of BUILD_TESTS (is ON by default).
+    + add CMake switch for PREFER_EXTERNAL_SNAPPY and PREFER_EXTERNAL_ZLIB.
+    + process README.md with pandoc.
+  * drop deb/libblosc1.symbols.
+
+ -- Daniel Stender <stender@debian.org>  Mon, 12 Mar 2018 18:01:18 +0100
+
+c-blosc (1.11.1+ds2-3) unstable; urgency=medium
+
+  * deb/control:
+    + bump standards to 4.1.3 (no changes needed).
+    + update Vcs- fields (project moved to Salsa).
+  * deb/copyright:
+    + expand copyright span.
+  * add deb/gbp.conf.
+
+ -- Daniel Stender <stender@debian.org>  Mon, 19 Feb 2018 21:32:49 +0100
+
+c-blosc (1.11.1+ds2-2) unstable; urgency=medium
+
+  * build with debhelper level 10 (changes in deb/compat and deb/control).
+  * deb/copyright:
+    + use https in Format field (as preferred by new standards).
+    + expand copyright span.
+  * bump standards version to 4.0.0 (no further changes needed).
+
+ -- Daniel Stender <stender@debian.org>  Tue, 11 Jul 2017 10:43:16 +0200
+
+c-blosc (1.11.1+ds2-1) unstable; urgency=medium
+
+  * remove vendored libzstd (Closes: #836573):
+    + drop paragraph for zstd-1.0.0 in deb/copyright.
+    + strip full internal-complibs folder by Files-Excluded.
+    + add libzstd-dev to build-deps in deb/control.
+    + toggle PREFER_EXTERNAL_ZSTD in deb/rules.
+  * add DEP-3 header to bigendian.patch, cosmetics.
+
+ -- Daniel Stender <stender@debian.org>  Sun, 25 Dec 2016 12:38:39 +0100
+
+c-blosc (1.11.1+ds1-3) unstable; urgency=medium
+
+  * Add fix-nonlinux-ftbfs.patch (Closes: #844047) [thanks to Samuel
+    Thibault].
+
+ -- Daniel Stender <stender@debian.org>  Sun, 13 Nov 2016 21:02:02 +0100
+
+c-blosc (1.11.1+ds1-2.2) unstable; urgency=medium
+
+  * Non-maintainer upload
+  * Fix typo in bigendian.patch
+
+ -- Gilles Filippini <pini@debian.org>  Tue, 08 Nov 2016 19:00:48 +0100
+
+c-blosc (1.11.1+ds1-2.1) unstable; urgency=medium
+
+  * New patch bigendian.patch: fix endianness issue in the bitshuffle
+    filter (closes: #8430040)
+
+ -- Gilles Filippini <pini@debian.org>  Fri, 04 Nov 2016 11:19:43 +0100
+
+c-blosc (1.11.1+ds1-2) unstable; urgency=medium
+
+  * add preserve-cflags-from-environment.patch.
+  * deb/rules: restore fPIE for hardening flags.
+
+ -- Daniel Stender <stender@debian.org>  Sun, 04 Sep 2016 13:08:55 +0200
+
+c-blosc (1.11.1+ds1-1) unstable; urgency=medium
+
+  * new upstream release (Closes: #834318).
+  * deb/control:
+    + put myself into Maintainer field.
+    + add docutils and links to build-deps (needed for READMEs).
+    + drop version for cmake build-dep (not needed).
+    + cosmetics, start short description with minuscules, removed trailing
+      whitespace.
+    + activate Vcs fields, use HTTPS for both.
+  * deb/copyright:
+    + add Files-Excluded for appyevor, internal-complibs and blosc/win32.
+    + put * and debian/* under the BSD-3-clause (changed upstream).
+    + add myself to copyright holders of debian/*, updated.
+    + drop file and license paragraphs of things now removed from the upstream
+      tarball.
+    + add paragraph for internal-complibs/zstd-1.0.0 (temporarily shipped until
+      it gets updated in Debian).
+    + rearranged license paragraphs, removed some unnecessary blank lines.
+  * deb/rules:
+    + temporarily build with hardening flags without pie because of problems
+      with cmake (internal -pthread test build fails with pie and std=gnu99).
+    + drop inclusion of buildflags.mk (not needed).
+    + add override for dh_installdocs to convert READMEs.
+    + remove debmake comment lines.
+  * deb/watch:
+    + add dversionmangle and repacksuffix for +ds1 tarball.
+  * drop deb/.git-dpm.
+  * add deb/libblosc-dev.examples, deb/libblosc-dev.docs.
+
+ -- Daniel Stender <stender@debian.org>  Sun, 04 Sep 2016 01:54:49 +0200
+
+c-blosc (1.9.1-1) unstable; urgency=medium
+
+  * New upstream version (fixes test failures on multiple archs)
+
+ -- Jean-Christophe Jaskula <jean.christophe.jaskula@gmail.com>  Fri, 20 May 2016 16:19:53 -0400
+
+c-blosc (1.9.0-1) unstable; urgency=medium
+
+  * New upstream version
+  * Bump Standards-Version (no changes needed)
+  * Enable hardening options
+
+ -- Jean-Christophe Jaskula <jean.christophe.jaskula@gmail.com>  Thu, 19 May 2016 11:20:31 -0500
+
+c-blosc (1.7.0-1) unstable; urgency=medium
+
+  * Initial release (Closes: #786523)
+
+ -- Jean-Christophe Jaskula <jean.christophe.jaskula@gmail.com>  Tue, 11 Aug 2015 19:40:49 -0400

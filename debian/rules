@@ -1,0 +1,28 @@
+#!/usr/bin/make -f
+export DH_VERBOSE = 1
+export DEB_BUILD_MAINT_OPTIONS = hardening=+all
+
+%:
+	dh $@ --buildsystem=cmake
+
+override_dh_auto_configure:
+	dh_auto_configure -- \
+	-DCMAKE_BINARY_DIR=debian/tmp \
+	-DPREFER_EXTERNAL_LZ4=ON \
+	-DPREFER_EXTERNAL_ZSTD=ON \
+	-DDEACTIVATE_SNAPPY=OFF \
+	-DPREFER_EXTERNAL_ZLIB=ON
+#	-DCMAKE_LIBRARY_PATH=$(DEB_HOST_MULTIARCH) \
+#	-DCMAKE_INSTALL_PREFIX=debian/libblosc1 \
+
+override_dh_installdocs:
+ifeq (,$(filter nodoc, $(DEB_BUILD_OPTIONS)))
+	for i in README_CHUNK_FORMAT README_THREADED THANKS; \
+	do rst2html -r 5 $$i.rst debian/tmp/$$i.html; \
+	LANG=C.UTF-8 links -dump debian/tmp/$$i.html > debian/tmp/$$i; done
+	pandoc -f markdown -t plain -o debian/tmp/README README.md
+endif
+	dh_installdocs -A debian/tmp/README debian/tmp/THANKS
+
+override_dh_installchangelogs:
+	dh_installchangelogs RELEASE_NOTES.rst
