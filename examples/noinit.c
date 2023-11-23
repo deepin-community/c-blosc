@@ -1,7 +1,7 @@
 /*
-    Copyright (C) 2016  Francesc Alted
-    http://blosc.org
-    License: MIT (see LICENSE.txt)
+    Copyright (c) 2016  Francesc Alted
+    https://blosc.org
+    License: BSD 3-Clause (see LICENSE.txt)
 
     Example program demonstrating that from 1.9.0 on, Blosc does not
     need to be initialized (although it is recommended).
@@ -24,8 +24,8 @@
     $ ./noinit
     Blosc version info: 1.8.2.dev ($Date:: 2016-04-08 #$)
     Compression: 4000000 -> 158788 (25.2x)
-    Decompression succesful!
-    Succesful roundtrip!
+    Decompression successful!
+    Successful roundtrip!
 
 */
 
@@ -56,7 +56,7 @@ int main(){
   /* Compress with clevel=5 and shuffle active  */
   csize = blosc_compress(5, 1, sizeof(float), isize, data, data_out, osize);
   if (csize == 0) {
-    printf("Buffer is uncompressible.  Giving up.\n");
+    printf("Buffer is incompressible.  Giving up.\n");
     return 1;
   }
   else if (csize < 0) {
@@ -73,7 +73,7 @@ int main(){
     return dsize;
   }
 
-  printf("Decompression succesful!\n");
+  printf("Decompression successful!\n");
 
   for(i=0;i<SIZE;i++){
     if(data[i] != data_dest[i]) {
@@ -82,6 +82,6 @@ int main(){
     }
   }
 
-  printf("Succesful roundtrip!\n");
+  printf("Successful roundtrip!\n");
   return 0;
 }

@@ -1,6 +1,17 @@
 #!/usr/bin/make -f
-export DH_VERBOSE = 1
+
+#export DH_VERBOSE = 1
 export DEB_BUILD_MAINT_OPTIONS = hardening=+all
+
+DEB_HOST_ARCH ?= $(shell dpkg-architecture -qDEB_HOST_ARCH)
+
+# Testsuite started to fail on mips64el, possibly related to switch
+# from GCC-10 to GCC-11. Tested that both -O1 and -O3 optimization
+# worked. -O2 was successful only when disabling inline functions.
+# See bug #1000953
+ifeq ($(DEB_HOST_ARCH),mips64el)
+	export DEB_CFLAGS_MAINT_APPEND = -O1
+endif
 
 %:
 	dh $@ --buildsystem=cmake
@@ -12,17 +23,14 @@ override_dh_auto_configure:
 	-DPREFER_EXTERNAL_ZSTD=ON \
 	-DDEACTIVATE_SNAPPY=OFF \
 	-DPREFER_EXTERNAL_ZLIB=ON
-#	-DCMAKE_LIBRARY_PATH=$(DEB_HOST_MULTIARCH) \
-#	-DCMAKE_INSTALL_PREFIX=debian/libblosc1 \
 
 override_dh_installdocs:
 ifeq (,$(filter nodoc, $(DEB_BUILD_OPTIONS)))
 	for i in README_CHUNK_FORMAT README_THREADED THANKS; \
 	do rst2html -r 5 $$i.rst debian/tmp/$$i.html; \
 	LANG=C.UTF-8 links -dump debian/tmp/$$i.html > debian/tmp/$$i; done
-	pandoc -f markdown -t plain -o debian/tmp/README README.md
 endif
-	dh_installdocs -A debian/tmp/README debian/tmp/THANKS
+	dh_installdocs -A README.md debian/tmp/THANKS
 
 override_dh_installchangelogs:
 	dh_installchangelogs RELEASE_NOTES.rst

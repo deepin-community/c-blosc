@@ -1,3 +1,63 @@
+c-blosc (1.21.5+ds-1) unstable; urgency=medium
+
+  * New upstream release.
+  * d/copyright
+    - Add year 2023 to myself.
+    - Update paragraph for blosc/blosclz.* files.
+
+ -- Håvard F. Aasen <havard.f.aasen@pfft.no>  Sat, 09 Sep 2023 12:58:36 +0200
+
+c-blosc (1.21.3+ds-1) unstable; urgency=medium
+
+  * New upstream release.
+  * Update Standards-Version to 4.6.2, no changes needed.
+
+ -- Håvard F. Aasen <havard.f.aasen@pfft.no>  Mon, 19 Dec 2022 16:30:24 +0100
+
+c-blosc (1.21.2+ds-1) unstable; urgency=medium
+
+  * New upstream release.
+  * Update d/watch and search for tags on GitHub.
+  * Drop patch, included upstream.
+
+ -- Håvard F. Aasen <havard.f.aasen@pfft.no>  Fri, 09 Dec 2022 22:59:17 +0100
+
+c-blosc (1.21.1+ds2-3) unstable; urgency=medium
+
+  * Mark *-dev package, Multi-Arch: same.
+  * Drop pandoc as build dependency, install unconverted *.md file.
+  * Mark multiarch.patch as forwarded upstream.
+  * Update Standards-Version to 4.6.1
+  * Update maintainer name and mail.
+  * d/copyright: Include myself under debian/* paragraph.
+
+ -- Håvard F. Aasen <havard.f.aasen@pfft.no>  Tue, 19 Jul 2022 12:03:19 +0200
+
+c-blosc (1.21.1+ds2-2) unstable; urgency=medium
+
+  * Compile with '-O1' on mips64el. Closes: #1000953
+
+ -- Håvard Flaget Aasen <haavard_aasen@yahoo.no>  Mon, 06 Dec 2021 14:58:56 +0100
+
+c-blosc (1.21.1+ds2-1) unstable; urgency=medium
+
+  [ Håvard Flaget Aasen ]
+  * Change repacking of source. Only remove third-party libraries.
+  * Add pkgconfig file.
+  * d/copyright:
+    - Include files from blosc/win32/*, blosc/fastcopy.c and blosc/blosclz.*
+    - Be more specific regarding blosc/bitshuffle* files.
+  * d/rules:
+    - Verbose build, default to off.
+    - Remove commented out configure options.
+
+  [ Mathieu Malaterre ]
+  * d/patches: blosc should support multiarch. Closes: #836575
+  * d/symbols: Add missing symbol file
+
+
+ -- Håvard Flaget Aasen <haavard_aasen@yahoo.no>  Fri, 26 Nov 2021 15:20:38 +0100
+
 c-blosc (1.21.1+ds1-1) unstable; urgency=medium
 
   * New upstream release
